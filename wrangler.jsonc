@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "pilebook",
+  "compatibility_date": "2026-11-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./worker/index.ts",
+  "upload_source_maps": true,
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  },
+  "triggers": {
+    "crons": ["15 * * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pilebook",
+      "database_id": "b8e1c0a2-7d44-4f1a-9c3e-12ab34cd56ef",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "EMAIL_PROVIDER": "console",
+    "DEV_EXPOSE_MAGIC_LINK": "0",
+    "APP_ORIGIN": "http://127.0.0.1:4471",
+    "RESEND_FROM": "Pilebook <bookings@pilebook.local>"
+  }
+}

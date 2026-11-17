@@ -1,0 +1,14 @@
+# Copy to .dev.vars for local development. Never commit real keys.
+# .dev.vars overrides wrangler.jsonc vars when you run `npm run dev`.
+
+DEV_EXPOSE_MAGIC_LINK=1
+APP_ORIGIN=http://127.0.0.1:4471
+EMAIL_PROVIDER=console
+
+# Optional. When both are set, checkout uses Stripe test mode and Connect.
+# STRIPE_SECRET_KEY=sk_test_...
+# STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Optional. EMAIL_PROVIDER=resend sends through Resend. Otherwise mail is logged.
+# RESEND_API_KEY=re_...
+# RESEND_FROM=Pilebook <bookings@yourdomain.com>
